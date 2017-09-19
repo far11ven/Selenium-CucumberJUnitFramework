@@ -1,0 +1,6 @@
+
+INFO Tue Sep 19 17:31:24 IST 2017: WebDriver Initialized
+INFO Tue Sep 19 17:31:27 IST 2017: Websitr URL launched
+INFO Tue Sep 19 17:31:33 IST 2017: Gmail credentials provided
+PASS Tue Sep 19 17:31:43 IST 2017: Login Success, User is present on Login Home Page
+PASS Tue Sep 19 17:31:43 IST 2017: WebDriver Closed
