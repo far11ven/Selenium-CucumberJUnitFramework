@@ -11,6 +11,8 @@ import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
+import com.steps.StepDefinitions;
+
 public class LogAction {
 
 	Logger logger;
@@ -25,8 +27,11 @@ public class LogAction {
 		logger = Logger.getLogger(ClassName);
 
 		//create log file
-		fileName = "Test Run - " + cal.getTime();
-		fileName  = fileName.replaceAll(":",".")+  ".txt";
+		fileName = "" + cal.getTime();
+		String[] currDate = fileName.split(" ");
+		fileName = currDate[2] + " " + currDate[1] + " " + currDate[5] + " " + currDate[3];
+		
+		fileName  = "Test Run - " + fileName.replaceAll(":",".")+  ".txt";
 
 		logFile= new File(fileName);
 
@@ -98,7 +103,7 @@ public class LogAction {
 		}
 		catch(IOException e) {
 
-			System.out.println("Can't write to Log File, IOException occurred!!!!!!!!!!!!!!!!! \n");
+			System.err.println("Can't write to Log File, IOException occurred!!!!!!!!!!!!!!!!! \n");
 			e.printStackTrace();
 
 
