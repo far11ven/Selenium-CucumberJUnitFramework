@@ -34,7 +34,7 @@ public class StepDefinitions {
 		
 		log.writeLog("INFO","Running scenario : " + "[ Name : "+ currentScenario.getName() + " ]" + "[ SourceTagNames : "+  currentScenario.getSourceTagNames() + " ]");
 
-		System.setProperty("webdriver.chrome.driver", "D:\\Selenium\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\Eclipse\\Selenium\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 

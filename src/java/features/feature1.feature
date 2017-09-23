@@ -18,7 +18,7 @@ Feature: Testing Login for Gmail
 
     Examples: 
       | username | password |
-      | kushalbhalaik@gmail.com    |       alexkb&KB7 | 
-      | kushalbhalaik@gmail.com    |       alexkb&KB0 |
+      | kushalbhalaik@gmail.com    |       al | 
+      | kushalbhalaik@gmail.com    |       al |
 
  
