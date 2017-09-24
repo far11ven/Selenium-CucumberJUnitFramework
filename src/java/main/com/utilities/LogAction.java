@@ -73,7 +73,7 @@ public class LogAction {
 			logger.error(type + " " + currentTime + ": " + message);
 			writeToLogFile(type + " " + currentTime + ": " + message);
 			writeToLogFile("Test step failed..");
-			throw new TestFailException("Test step failed..");
+			throw new TestFailedException("Test step failed..");
 
 		default:
 			Logger.getRootLogger().setLevel(Level.INFO);

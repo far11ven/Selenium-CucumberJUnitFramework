@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.global.Generic;
 import com.utilities.LogAction;
-import com.utilities.TestFailException;
+import com.utilities.TestFailedException;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
@@ -84,10 +84,10 @@ public class StepDefinitions {
 	}
 
 	@Then("^I verify login is successful for ([^\"]*)$")
-	public void verfify_login(String username) throws TestFailException {
+	public void verfify_login(String username) throws TestFailedException {
 		try {
 
-			gfx.waitFor(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.gb_Fc.gb_gb.gb_tg.gb_R > a")));
+			Generic.waitFor(driver,ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.gb_Fc.gb_gb.gb_tg.gb_R > a")), 20);
 			gfx.embedScreenshot(driver, currentScenario);
 			if(gfx.isElementPresent(driver, By.cssSelector("div.gb_Fc.gb_gb.gb_tg.gb_R > a"))) {
 

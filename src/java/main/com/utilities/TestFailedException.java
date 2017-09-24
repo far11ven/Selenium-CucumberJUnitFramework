@@ -1,10 +1,10 @@
 package com.utilities;
 
-public class TestFailException extends RuntimeException {
+public class TestFailedException extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;
 
-	public TestFailException(String s)
+	public TestFailedException(String s)
 	{
 		// Call constructor of parent Exception
 		super(s);
