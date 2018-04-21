@@ -10,12 +10,10 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.TestException;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
@@ -36,54 +34,17 @@ public class Generic {
 
 
 	}
-	
-	public static void waitFor(WebDriver driver, ExpectedCondition<?> condition,int timeoutSeconds) throws Exception {
-	    
-	    try {
-	        (new WebDriverWait(driver, timeoutSeconds)).until(condition);
-	    } finally {
-	    	driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-	    }
-	}
-	
-	
 
-	public WebElement waitFor(WebDriver driver, WebElement elem, String waitType, long waitInSeconds ) {
+
+	public Wait<WebDriver> waitFor(WebDriver driver, long durationInSeconds) {
 
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-				.withTimeout(waitInSeconds, TimeUnit.SECONDS)
+				.withTimeout(durationInSeconds, TimeUnit.SECONDS)
 				.pollingEvery(500, TimeUnit.MILLISECONDS)
 				.ignoring(NoSuchElementException.class);
+		return wait;
 
-		try{
-			switch(waitType) 
-			{
-			case "elementToBeClickable":
-				wait.until(ExpectedConditions.elementToBeClickable(elem));
-				break;
 
-			case "visibilityOf":
-				wait.until(ExpectedConditions.visibilityOf(elem));
-				break;
-
-			case "elementToBeSelected":
-				wait.until(ExpectedConditions.elementToBeSelected(elem));
-				break;
-
-			default:
-				wait.until(ExpectedConditions.visibilityOf(elem));
-				break;
-
-			}
-
-		}
-		catch(TimeoutException e) {
-
-			e.printStackTrace();
-
-		}
-
-		return elem;
 	}
 
 
@@ -100,7 +61,7 @@ public class Generic {
 		catch(Exception e) 
 		{
 			System.err.println("Error occurred during taking snapshot" + e.getMessage());
-
+			
 		}
 
 	}

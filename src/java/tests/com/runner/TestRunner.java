@@ -10,9 +10,9 @@ import cucumber.api.junit.Cucumber;
 		
 		plugin = {"pretty", "html:target/html-report", "json:target/json-report.json", "rerun:target/rerun.txt" },
 		monochrome=true,
-		features="./src/java/features/feature1.feature",
+		features="./features/feature1.feature",
 		glue= {"com.steps"},
-		tags="@test2")
+		tags="@test1")
 
 public class TestRunner {
 

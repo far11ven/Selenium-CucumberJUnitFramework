@@ -34,7 +34,7 @@ public class StepDefinitions {
 		
 		log.writeLog("INFO","Running scenario : " + "[ Name : "+ currentScenario.getName() + " ]" + "[ SourceTagNames : "+  currentScenario.getSourceTagNames() + " ]");
 
-		System.setProperty("webdriver.chrome.driver", "C:\\Eclipse\\Selenium\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "D:\\Eclipse\\Selenium\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 
@@ -87,7 +87,7 @@ public class StepDefinitions {
 	public void verfify_login(String username) throws TestFailedException {
 		try {
 
-			Generic.waitFor(driver,ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.gb_Fc.gb_gb.gb_tg.gb_R > a")), 20);
+			gfx.waitFor(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.gb_Fc.gb_gb.gb_tg.gb_R > a")));
 			gfx.embedScreenshot(driver, currentScenario);
 			if(gfx.isElementPresent(driver, By.cssSelector("div.gb_Fc.gb_gb.gb_tg.gb_R > a"))) {
 
