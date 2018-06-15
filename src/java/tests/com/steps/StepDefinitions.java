@@ -34,7 +34,7 @@ public class StepDefinitions {
 		
 		log.writeLog("INFO","Running scenario : " + "[ Name : "+ currentScenario.getName() + " ]" + "[ SourceTagNames : "+  currentScenario.getSourceTagNames() + " ]");
 
-		System.setProperty("webdriver.chrome.driver", "C:\\Eclipse\\Selenium\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "D:\\Eclipse\\Selenium\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 
@@ -45,8 +45,8 @@ public class StepDefinitions {
 	@After
 	public void tearDown() throws IOException{
 
-		/*driver.close();
-		driver.quit();*/
+		driver.close();
+		driver.quit();
 
 		log.writeLog("PASS", "WebDriver Closed");
 		log.writeLog("INFO","Scenario " + "[ Name : "+ currentScenario.getName() + " ]"  + " has run with \n [ STATUS = "+  currentScenario.getStatus() + " ]");
@@ -62,6 +62,8 @@ public class StepDefinitions {
 
 		log.writeLog("INFO", "Website URL launched");
 		gfx.embedScreenshot(driver, currentScenario);
+		
+		driver.findElement(By.xpath("//a[contains(.,'Sign In')]")).click();
 
 	}
 
